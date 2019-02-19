@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const common = require('./webpack.common.js');
+const common = require('./webpack.common.js')(true);
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -22,22 +22,5 @@ module.exports = merge(common, {
   },
   output: {
     filename: '[name]-[chunkhash].js',
-  },
-  plugins: [
-    new HtmlWebPackPlugin({
-      minify: {
-        html5: true,
-        removeComments: true,
-        collapseWhitespace: true,
-        preserveLineBreaks: false,
-        decodeEntities: true,
-      },
-      title: 'Secure Patch',
-      template: join(__dirname, 'client/index.html')
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name]-[chunkhash].css',
-      chunkFilename: '[id].css'
-    })
-  ]
+  }
 });
