@@ -1,0 +1,22 @@
+$breakpoints: (
+  'xs': ( min: 0, max: 575),
+  'sm': ( min: 576, max: 767),
+  'md': ( min: 768, max: 991),
+  'lg': ( min: 992, max: 1199),
+  'xl': ( min: 1200, max: 9999) // there should be a max for xl devices but.....
+);
+
+@function app-breakpoints( $size: 'xs', $variant: 'max') {
+  $size-map: map-get($breakpoints, $size);
+  @return map-get($size-map, $variant);
+}
+
+$xs-min: app-breakpoints('xs', 'min');
+$xs-max: app-breakpoints('xs', 'max');
+$sm-min: app-breakpoints('sm', 'min');
+$sm-max: app-breakpoints('sm', 'max');
+$md-min: app-breakpoints('md', 'min');
+$md-max: app-breakpoints('md', 'max');
+$lg-min: app-breakpoints('lg', 'min');
+$lg-max: app-breakpoints('lg', 'max');
+$xl-min: app-breakpoints('xl', 'min');

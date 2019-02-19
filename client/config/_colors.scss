@@ -1,0 +1,45 @@
+@import "../config/color-palette";
+
+@function app-color(
+  $name: 'primary',
+  $variant: 'base',
+  $level: 1,
+  $opacity: 1
+) {
+  $base-color: map-get($color-palette, $name);
+  $color: $base-color;
+
+  @if $variant=='dark' {
+    $color: mix(black, $base-color, $level * $color-interval);
+  }
+  @else if $variant=='light' {
+    $color: mix(white, $base-color, $level * $color-interval);
+  }
+
+  @if $opacity {
+    $color: rgba($color, $opacity);
+  }
+
+  @return $color;
+}
+
+$accent-color: app-color('accent', 'base');
+$primary-text-color: app-color('primary-text', 'base');
+$secondary-text-color: app-color('secondary-text', 'base');
+
+$primary-color: app-color('primary', 'base');
+$primary-dark-color: app-color('primary', 'dark');
+$primary-light-color: app-color('primary', 'light');
+$primary-lighter-color: app-color('primary', 'light', 2);
+
+$secondary-color: app-color('secondary', 'base');
+$secondary-dark-color: app-color('secondary', 'dark');
+$secondary-light-color: app-color('secondary', 'light');
+
+$foreground-color: app-color('foreground', 'base');
+$foreground-dark-color: app-color('foreground', 'dark');
+$foreground-light-color: app-color('foreground', 'light');
+
+$background-color: app-color('background', 'base');
+$background-dark-color: app-color('background', 'dark');
+$background-light-color: app-color('background', 'light');
