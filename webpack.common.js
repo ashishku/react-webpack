@@ -71,7 +71,7 @@ module.exports = function(isProd) {
           preserveLineBreaks: !isProd,
           decodeEntities: true,
         },
-        title: 'Secure Patch',
+        title: 'React Webpack',
         template: join(__dirname, 'client/index.html')
       }),
       new HtmlWebPackPlugin({
@@ -86,7 +86,7 @@ module.exports = function(isProd) {
           preserveLineBreaks: !isProd,
           decodeEntities: true,
         },
-        title: 'Secure Patch',
+        title: 'Réagissez Webpack',
         template: join(__dirname, 'client/index.html')
       }),
       new MiniCssExtractPlugin({
